@@ -12,7 +12,7 @@ class MovieModel extends MovieEntity {
       );
 
  factory MovieModel.fromJson(Map<String,dynamic> json) {
-   return MovieModel(
+   return  MovieModel(
    overview: json["overview"] ,
    id:json["id"] ,
    title: json["title"],
