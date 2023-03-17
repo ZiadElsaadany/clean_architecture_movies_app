@@ -9,7 +9,7 @@
                   controller
              - domain layer 
                   entities
-                  usecases    
+                  usecases   ( nowPlaying    ,, getpopular  ,, getTopRated )  
                   repository
              - data layer 
                  models
