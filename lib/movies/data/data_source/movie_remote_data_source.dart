@@ -1,12 +1,15 @@
 import 'package:clean_architecture_movies_app/core/error/exceptions.dart';
-import 'package:clean_architecture_movies_app/core/utls/app_constant.dart';
+import 'package:clean_architecture_movies_app/core/network/api_constants.dart';
 import 'package:clean_architecture_movies_app/movies/data/models/movies_model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../core/network/error_message_model.dart';
 
+// contract
 abstract class BaseMovieRemoteDataSource {
   Future<List<MovieModel>?> getNowPlayingMovies();
+  Future<List<MovieModel>?> getPopularMovies();
+  Future<List<MovieModel>?> getTopRatedMovies();
 }
 
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
@@ -16,7 +19,7 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
 @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
     final response = await Dio().get(
-        "${AppConstant.baseUrl}/movies/now_playing?${AppConstant.apiKey}"
+       ApiConstant.nowPlayingPath
     );
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data["results"] as List).map(
@@ -28,6 +31,16 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
         errorMessageModel: ErrorMessageModel.fromJson(response.data),
       );
     }
+  }
+
+  @override
+  Future<List<MovieModel>?> getPopularMovies() {
+
+  }
+
+  @override
+  Future<List<MovieModel>?> getTopRatedMovies() {
+
   }
 
 
