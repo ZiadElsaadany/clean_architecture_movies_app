@@ -16,5 +16,12 @@
                  datasource 
                  repository
 
+# Review Domain and Data layers 
+    //domain movie entity --> movie -->  data model
+    //UseCase   
+    //Repository --> abstract methods
+    // data  dataSource
+    // data repository 
+
 ![Alt text](img.png "flutter with clean architecture diagram")
 ![Alt text](bloc_diagram.PNG "flutter with clean architecture diagram")
