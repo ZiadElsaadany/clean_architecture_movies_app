@@ -1,4 +1,5 @@
 
+import 'package:clean_architecture_movies_app/core/services/services_locator.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/controller/movies_bloc.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/controller/movies_events.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/controller/movies_states.dart';
@@ -12,7 +13,7 @@ class MoviesScreen extends StatelessWidget {
     return BlocProvider(
       create: (ctx){
         // new event
-        return MoviesBloc()..add(GetNowPlayingEvent());
+        return MoviesBloc(sl())..add(GetNowPlayingEvent());
       },
        lazy: false,  //   play getNowPlaying
       child: BlocBuilder<MoviesBloc , MoviesStates>(
