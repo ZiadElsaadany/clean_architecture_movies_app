@@ -40,6 +40,11 @@ dependencies:
   dio: ^5.0.2
   dartz: ^0.10.1
   flutter_bloc: ^8.1.2
+  animate_do: ^3.0.2
+  cached_network_image: ^3.2.3
+  carousel_slider: ^4.2.1
+  google_fonts: ^4.0.3
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:

@@ -8,4 +8,10 @@ static const String popularPath =
     "${ApiConstant.baseUrl}/movie/popular?api_key=${ApiConstant.apiKey}";
   static const String topRatedPath =
       "${ApiConstant.baseUrl}/movie/top_rated?api_key=${ApiConstant.apiKey}";
+
+
+  static const String baseImageUrl  = "https://image.tmdb.org/t/p/w500";
+  static  String imageUrl( String path ) {
+    return "$baseImageUrl$path";
+  }
 }
