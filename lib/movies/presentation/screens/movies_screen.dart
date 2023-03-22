@@ -22,7 +22,7 @@ class MainMoviesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(create: (ctx)  {
-      return  sl<MoviesBloc>()..add(GetNowPlayingEvent());
+      return  sl<MoviesBloc>()..add(GetNowPlayingEvent())..add(GetPopularEvent())..add(GetTopRatedEvent());
     },
     child: Scaffold(
       backgroundColor: Colors.grey.shade900,

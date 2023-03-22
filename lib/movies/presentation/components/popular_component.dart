@@ -7,14 +7,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../core/network/api_constants.dart';
-import '../../../core/utls/dummy .dart';
 
 class PopularComponent extends StatelessWidget {
   const PopularComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FadeIn(
+    return BlocBuilder< MoviesBloc,MoviesStates>(
+        buildWhen: (previous, current)=>previous.popularState!=current.popularState,
+
+        builder: (ctx,state) {
+
+      return FadeIn(
         duration: const Duration(milliseconds: 500),
         child: SizedBox(
           height: 170.0,
@@ -22,9 +26,9 @@ class PopularComponent extends StatelessWidget {
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            itemCount: moviesList.length,
+            itemCount: state.popularMovies.length,
             itemBuilder: (context, index) {
-              final movie = moviesList[index];
+              final movie = state.popularMovies[index];
               return Container(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: InkWell(
@@ -59,7 +63,7 @@ class PopularComponent extends StatelessWidget {
             },
           ),
         ),
-      );
+      );    }) ;
 
 
 

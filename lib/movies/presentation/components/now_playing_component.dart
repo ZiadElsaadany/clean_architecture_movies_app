@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/network/api_constants.dart';
-import '../../../core/utls/dummy .dart';
 import '../controller/movies_bloc.dart';
 import '../controller/movies_states.dart';
 
@@ -15,7 +14,10 @@ class NowPlayingComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return      BlocBuilder<MoviesBloc , MoviesStates>(builder: (ctx,state)
+    return      BlocBuilder<MoviesBloc , MoviesStates>(
+        buildWhen: (previous, current)=>previous.nowPlayingState!=current.nowPlayingState,
+
+        builder: (ctx,state)
     {
 
 

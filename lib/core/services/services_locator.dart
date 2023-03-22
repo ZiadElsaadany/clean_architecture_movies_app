@@ -2,6 +2,8 @@ import 'package:clean_architecture_movies_app/movies/data/data_source/movie_remo
 import 'package:clean_architecture_movies_app/movies/data/repository/movies_repository.dart';
 import 'package:clean_architecture_movies_app/movies/domain/repository/base_movies_repo.dart';
 import 'package:clean_architecture_movies_app/movies/domain/usecases/get_now_playing.dart';
+import 'package:clean_architecture_movies_app/movies/domain/usecases/get_popular_movies.dart';
+import 'package:clean_architecture_movies_app/movies/domain/usecases/get_top_rated.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/controller/movies_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,7 +13,7 @@ class ServiceLocator {
     ///Bloc
     ///
     /// new object from MovieBloc
-    sl.registerFactory(() => MoviesBloc(sl()));
+    sl.registerFactory(() => MoviesBloc(sl(),sl(),sl()));
 
 
     /// Use cases
@@ -19,7 +21,12 @@ class ServiceLocator {
     sl.registerLazySingleton(() =>GetNowPlayingMoviesUseCase(
         baseMovieRepository: sl()
     ) );
-
+    sl.registerLazySingleton(() =>GetPopularMoviesUseCase(
+        baseMovieRepository: sl()
+    ) );
+    sl.registerLazySingleton(() =>GetTopRatedMoviesUseCase(
+        baseMovieRepository: sl()
+    ) );
     ///Repository
     sl.registerLazySingleton<BaseMovieRepository>(() =>
         MoviesRepository(
