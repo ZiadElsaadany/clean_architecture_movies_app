@@ -1,3 +1,4 @@
+import 'package:clean_architecture_movies_app/core/use_case/base_use_case.dart';
 import 'package:clean_architecture_movies_app/core/utls/enums/request_state.dart';
 import 'package:clean_architecture_movies_app/movies/domain/usecases/get_now_playing.dart';
 import 'package:clean_architecture_movies_app/movies/domain/usecases/get_popular_movies.dart';
@@ -21,7 +22,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesStates> {
       // event --> GetNowPlayingEvent
       // emit     --> talk with ui   to refresh
 
-      final result =await getNowPlayingMoviesUseCase.execute();
+      final result =await getNowPlayingMoviesUseCase(const NoParameter());
+      //   because method is call
 
       result.fold(
           (l) => emit(
@@ -37,7 +39,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesStates> {
 
     on<GetPopularEvent>((event, emit) async{
 
-      final result =await getPopularUseCase.execute();
+      final result =await getPopularUseCase(const NoParameter());
       result.fold(
               (l) => emit(
                 state.copyWith(
@@ -55,7 +57,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesStates> {
 
   on<GetTopRatedEvent>((event, emit) async{
 
-  final result =await getTopRatedUseCase.execute();
+  final result =await getTopRatedUseCase(const NoParameter());
   result.fold(
   (l) => emit(
   state.copyWith(

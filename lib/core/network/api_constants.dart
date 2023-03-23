@@ -14,4 +14,11 @@ static const String popularPath =
   static  String imageUrl( String path ) {
     return "$baseImageUrl$path";
   }
+
+  static  String movieDetailsPath( int id ) {
+    return "${ApiConstant.baseUrl}/movie/$id?api_key=${ApiConstant.apiKey}";
+  }
+
+
+
 }
