@@ -1,11 +1,12 @@
 import 'package:clean_architecture_movies_app/core/services/services_locator.dart';
+import 'package:clean_architecture_movies_app/core/utls/app_string.dart';
 import 'package:flutter/material.dart';
 
 import 'movies/presentation/screens/movies_screen.dart';
 
 void main ( )  {
   ServiceLocator().init();
-  runApp(MoviesApp());
+  runApp(const MoviesApp());
 }
 
 class MoviesApp extends StatelessWidget {
@@ -14,9 +15,12 @@ class MoviesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Movies App",
+      title: AppString.appName,
       debugShowCheckedModeBanner: false,
-      home: MainMoviesScreen(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.grey.shade900
+      ),
+      home: const MainMoviesScreen(),
     );
   }
 }

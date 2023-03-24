@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/network/api_constants.dart';
 import '../controller/movies_bloc.dart';
 import '../controller/movies_states.dart';
+import '../screens/movie_detail_screen.dart';
 
 class NowPlayingComponent extends StatelessWidget {
   const NowPlayingComponent({Key? key}) : super(key: key);
@@ -44,6 +45,11 @@ return const SizedBox(
                     return GestureDetector(
                       key: const Key('openMovieMinimalDetail'),
                       onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (ctx)  {
+                          return      MovieDetailScreen(
+                            id: item.id,
+                          );
+                        }));
                         /// TODO : NAVIGATE TO MOVIE DETAILS
                       },
                       child: Stack(

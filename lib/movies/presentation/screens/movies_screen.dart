@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:clean_architecture_movies_app/core/network/api_constants.dart';
+import 'package:clean_architecture_movies_app/core/utls/app_string.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/components/now_playing_component.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/components/popular_component.dart';
 import 'package:clean_architecture_movies_app/movies/presentation/components/top_rated_component.dart';
@@ -38,7 +39,7 @@ class MainMoviesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Popular",
+                    AppString.popular,
                     style: GoogleFonts.poppins(
                       fontSize: 19,
                       color: Colors.white
@@ -55,7 +56,7 @@ class MainMoviesScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: const [
-                          Text('See More',
+                          Text(AppString.seeMore,
                             style: TextStyle(
                                 color: Colors.white
                             ),
@@ -85,7 +86,7 @@ class MainMoviesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Top Rated",
+                   AppString.topRated,
                     style: GoogleFonts.poppins(
                       fontSize: 19,
                       color: Colors.white,
@@ -101,7 +102,7 @@ class MainMoviesScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: const [
-                          Text('See More',
+                          Text(AppString.seeMore,
                             style: TextStyle(
                                 color: Colors.white
                             ),

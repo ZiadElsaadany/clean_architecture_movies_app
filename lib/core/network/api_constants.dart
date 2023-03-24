@@ -20,5 +20,9 @@ static const String popularPath =
   }
 
 
+  static  String recommendation( int id ) {
+    return "${ApiConstant.baseUrl}/movie/$id/recommendations?api_key=${ApiConstant.apiKey}";
+  }
+
 
 }

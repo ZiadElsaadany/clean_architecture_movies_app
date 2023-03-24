@@ -11,13 +11,13 @@ class MovieDetailsModel  extends MovieDetailsEntity {
 
  factory MovieDetailsModel.fromJson( Map<String , dynamic >  json)  {
     return
-MovieDetailsModel(backDropPath: json["backdrop_path"],
+MovieDetailsModel(backDropPath: json["backdrop_path"]??"",
     id: json["id"],
 overView: json["overview"],
 releaseDate: json["release_date"],
 runTime: json["runtime"],
 title: json["title"],
-voteAverage: json["vote_average"],
+voteAverage: json["vote_average"].toDouble(),
 genres: List<GenresModel>.from(json["genres"].map((e)=>GenresModel.fromjson(e)))
 );
 }

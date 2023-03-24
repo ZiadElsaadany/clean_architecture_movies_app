@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../core/network/api_constants.dart';
+import '../screens/movie_detail_screen.dart';
 
 class PopularComponent extends StatelessWidget {
   const PopularComponent({Key? key}) : super(key: key);
@@ -33,7 +34,10 @@ class PopularComponent extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: InkWell(
                   onTap: () {
-                    /// TODO : NAVIGATE TO  MOVIE DETAILS
+
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                        return MovieDetailScreen(id: movie.id);
+                      } ));
                   },
                   child: ClipRRect(
                     borderRadius:
