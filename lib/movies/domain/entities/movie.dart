@@ -7,7 +7,7 @@ class MovieEntity  extends Equatable {
   final double voteAverage;
   final String releaseDate;
   final List<int> genreIds;
-  final String backdropPath;
+  final String ? backdropPath;
 
   const MovieEntity(
   {
@@ -16,7 +16,7 @@ class MovieEntity  extends Equatable {
     required this.title,
     required this.voteAverage,
     required this.genreIds,
-    required this.backdropPath,
+     this.backdropPath="",
     required this.releaseDate
 }
       );
@@ -26,10 +26,9 @@ class MovieEntity  extends Equatable {
   List<Object> get props =>[
     id,
     title,
-    backdropPath,
+    backdropPath??"",
     overview,
     genreIds,
-    backdropPath
   ] ;
 
 }

@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
 class RecommendationEntity extends Equatable {
-  final String ?imgPath  ;
+   String ?imgPath  ;
 final int id ;
- const  RecommendationEntity({
+   RecommendationEntity({
      this.imgPath,
    required this.id
 });

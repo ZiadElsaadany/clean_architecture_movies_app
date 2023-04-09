@@ -44,7 +44,9 @@ class MovieDetailContent extends StatelessWidget {
         switch (state.requestDetailsState) {
           case RequestState.loading:
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
             );
           case RequestState.loaded:
             return CustomScrollView(
@@ -256,7 +258,7 @@ class MovieDetailContent extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                   child: CachedNetworkImage(
-                    imageUrl: ApiConstant.imageUrl(recommendation.imgPath!),
+                    imageUrl: ApiConstant.imageUrl(recommendation.imgPath??""),
                     placeholder: (context, url) => Shimmer.fromColors(
                       baseColor: Colors.grey[850]!,
                       highlightColor: Colors.grey[800]!,

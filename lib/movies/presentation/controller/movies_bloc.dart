@@ -43,7 +43,6 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesStates> {
       result.fold(
               (l) => emit(
                 state.copyWith(
-
                     popularState: RequestState.error,
                     popularMessage: l.message
                 )

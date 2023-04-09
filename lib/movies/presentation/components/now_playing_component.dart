@@ -28,6 +28,7 @@ return const SizedBox(
   height: 400,
   child:   Center(
     child: CircularProgressIndicator(
+      color: Colors.white,
     ),
   ),
 );
@@ -74,7 +75,7 @@ return const SizedBox(
                             blendMode: BlendMode.dstIn,
                             child: CachedNetworkImage(
                               height: 560.0,
-                              imageUrl: ApiConstant.imageUrl(item.backdropPath),
+                              imageUrl: ApiConstant.imageUrl(item.backdropPath??""),
                               fit: BoxFit.cover,
                             ),
                           ),

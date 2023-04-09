@@ -19,7 +19,7 @@ class MovieModel extends MovieEntity {
    /// TODO : CHECK THIS
    voteAverage:json["vote_average"].toDouble(),
    genreIds: List<int>.from(json["genre_ids"].map((e) => e)),
-   backdropPath: json["backdrop_path"],
+   backdropPath: json["backdrop_path"]??"",
    releaseDate: json["release_date"]
 );
 
